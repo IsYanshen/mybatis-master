@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alpha.TodoMapper">
+    <!--
+    可以使用类的别名，Long是java.lang.Long的别名，内置定义
+    -->
+    <delete id="delete" parameterType="Long">
+        DELETE FROM mybatis.backlog
+        WHERE id = #{backlogId}
+    </delete>
+
+    <!--
+    参数是JavaBean，参数名必须和JavaBean的属性名保持一致
+    -->
+    <insert id="insert" parameterType="nickName">
+        INSERT INTO mybatis.backlog (title, description, path, dueTime, state)
+        VALUES (#{title}, #{description}, #{path}, #{dueTime}, #{state})
+    </insert>
+    <!--
+    多个参数可以在接口方法中使用Param注解
+    -->
+    <update id="update">
+        UPDATE mybatis.backlog
+        SET state = #{newState}
+        WHERE id = #{backlogId}
+    </update>
+</mapper>
+

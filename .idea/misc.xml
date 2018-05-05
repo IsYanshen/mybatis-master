@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/1_mapper/pom.xml" />
+        <option value="$PROJECT_DIR$/2_alais/pom.xml" />
+        <option value="$PROJECT_DIR$/2_parameter/pom.xml" />
+        <option value="$PROJECT_DIR$/3_result/pom.xml" />
+        <option value="$PROJECT_DIR$/4_richType/pom.xml" />
+        <option value="$PROJECT_DIR$/5_typeHandler/pom.xml" />
+        <option value="$PROJECT_DIR$/6_cascade/pom.xml" />
+        <option value="$PROJECT_DIR$/7_dynamicSQL/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenServices">
+    <service-url>http://maven.aliyun.com/nexus/service/local/</service-url>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

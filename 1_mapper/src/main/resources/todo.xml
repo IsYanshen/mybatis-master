@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alpha.TodoMapper">
+    <select id="getById" parameterType="java.lang.Long" resultType="com.alpha.Backlog">
+        SELECT *
+        FROM backlog
+        WHERE id = #{id}
+    </select>
+    <select id="getAll" resultType="com.alpha.Backlog">
+        SELECT *
+        FROM backlog
+    </select>
+    <select id="getPendings" parameterType="Long" resultType="com.alpha.Backlog">
+        SELECT *
+        FROM backlog
+        WHERE state = "pending"
+    </select>
+
+    <delete id="delete" parameterType="Long">
+        DELETE FROM mybatis.backlog
+        WHERE id = #{backlogId}
+    </delete>
+
+    <update id="update">
+        UPDATE mybatis.backlog
+        SET state = #{newState}
+        WHERE id = #{backlogId}
+    </update>
+
+    <insert id="insert" parameterType="com.alpha.Backlog">
+        INSERT INTO mybatis.backlog (title, description, path, dueTime, state)
+        VALUES (#{title}, #{description}, #{path}, #{dueTime}, #{state})
+    </insert>
+</mapper>
+
+        <!--*******************************
+        1、SQL语句的参数用占位符#{}表示，名字叫什么没关系
+        2、结果集映射到实体类，缺省根据字段名称在实体类中找set方法，实体类field声明顺序，
+           名称叫什么没关系
+        -->

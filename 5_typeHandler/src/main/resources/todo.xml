@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alpha.TodoMapper">
+    <!--
+    Java类型系统比SQL类型系统要丰富：实体类对象中可能包含值对象：怎么映射结果集？
+    -->
+    <resultMap id="backlogV2Map" type="backlogV2">
+        <result property="address.street" column="street"></result>
+        <result property="address.number" column="number"></result>
+        <!--用类型转换器来实现-->
+        <result property="cooperators" column="cooperator1_name" typeHandler="com.alpha.ArrayTypeHandler"></result>
+        <result property="cooperators" column="cooperator1_email" typeHandler="com.alpha.ArrayTypeHandler"></result>
+        <result property="cooperators" column="cooperator2_name" typeHandler="com.alpha.ArrayTypeHandler"></result>
+        <result property="cooperators" column="cooperator2_email" typeHandler="com.alpha.ArrayTypeHandler"></result>
+    </resultMap>
+
+    <select id="getBacklogV2ById" parameterType="Long" resultMap="backlogV2Map">
+        SELECT *
+        FROM mybatis.backlogv2
+        WHERE id = #{id}
+    </select>
+
+</mapper>
+

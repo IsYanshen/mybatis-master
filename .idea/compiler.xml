@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="1_mapper" />
+        <module name="2_alais" />
+        <module name="2_parameter" />
+        <module name="3_result" />
+        <module name="4_richType" />
+        <module name="5_typeHandler" />
+        <module name="6_cascade" />
+        <module name="7_dynamicSQL" />
+        <module name="mybatis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="1_mapper" target="1.8" />
+      <module name="2_alais" target="1.8" />
+      <module name="2_automap" target="1.8" />
+      <module name="2_parameter" target="1.8" />
+      <module name="3_result" target="1.8" />
+      <module name="4_richType" target="1.8" />
+      <module name="5_typeHandler" target="1.8" />
+      <module name="6_cascade" target="1.8" />
+      <module name="7_dynamicSQL" target="1.8" />
+      <module name="mybatis" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

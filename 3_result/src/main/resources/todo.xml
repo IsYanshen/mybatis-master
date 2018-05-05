@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alpha.TodoMapper">
+    <!--
+    最基本的情况：从结果集组装成POJO
+    1、自动映射：属性名和字段名保持一致
+    2、手工映射：属性名和字段名不一致，两种方法 as 或 resultMap
+    -->
+    <select id="getById1" parameterType="Long" resultType="backlog">
+        SELECT
+            title AS backlogTitle,
+            description,
+            path,
+            dueTime,
+            state
+        FROM mybatis.backlog
+        WHERE id = #{id};
+    </select>
+
+    <!--
+    手工映射：应用resultMap
+    -->
+    <resultMap id="backlogMap" type="backlog">
+        <result property="backlogTitle" column="title"></result>
+    </resultMap>
+    <select id="getById2" parameterType="Long" resultMap="backlogMap">
+        SELECT *
+        FROM mybatis.backlog
+        WHERE id = #{id};
+    </select>
+
+    <!--
+    map是保存结果集的最一般的形式，尤其是查询部分字段
+    -->
+    <select id="getTitleAndDescriptionById" parameterType="Long" resultType="map">
+        SELECT
+            title,
+            description
+        FROM mybatis.backlog
+        WHERE id = #{id}
+    </select>
+
+    <select id="getTitleAndDescription" resultType="map">
+        SELECT
+            title,
+            description
+        FROM mybatis.backlog
+    </select>
+
+
+</mapper>
+

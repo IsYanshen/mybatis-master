@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/1_mapper/1_mapper.iml" filepath="$PROJECT_DIR$/1_mapper/1_mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2_parameter/2_parameter.iml" filepath="$PROJECT_DIR$/2_parameter/2_parameter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/3_result/3_result.iml" filepath="$PROJECT_DIR$/3_result/3_result.iml" />
+      <module fileurl="file://$PROJECT_DIR$/4_richType/4_richType.iml" filepath="$PROJECT_DIR$/4_richType/4_richType.iml" />
+      <module fileurl="file://$PROJECT_DIR$/5_typeHandler/5_typeHandler.iml" filepath="$PROJECT_DIR$/5_typeHandler/5_typeHandler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/6_cascade/6_cascade.iml" filepath="$PROJECT_DIR$/6_cascade/6_cascade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/7_dynamicSQL/7_dynamicSQL.iml" filepath="$PROJECT_DIR$/7_dynamicSQL/7_dynamicSQL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis.iml" filepath="$PROJECT_DIR$/mybatis.iml" />
+    </modules>
+  </component>
+</project>

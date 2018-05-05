@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="cacheEnabled" value="false"/>
+        <setting name="defaultStatementTimeout" value="5"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="useGeneratedKeys" value="true"/>
+    </settings>
+    <!-- Continue editing here -->
+    <typeAliases>
+        <!--第1种方式：直接定义别名-->
+        <!--<typeAlias type="com.alpha.Backlog" alias="Backlog"></typeAlias>-->
+        <!--第2种方式：开启包扫描
+        1、按照类上的Alais注解
+        2、如果没有Alais注解，就把类名首字母小写，作为别名
+        -->
+        <package name="com.alpha"></package>
+    </typeAliases>
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"></property>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?allowMultiQueries=true"></property>
+                <property name="username" value="root"></property>
+                <property name="password" value="123456"></property>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="BacklogMapper.xml"></mapper>
+    </mappers>
+
+
+</configuration>

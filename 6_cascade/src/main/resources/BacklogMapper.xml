@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alpha.BacklogMapper">
+
+    <resultMap id="backlogV2Map" type="backlogV2">
+        <association property="address" column="id"
+                     select="getAddressByBacklogId"></association>
+        <collection property="cooperators" column="id"
+                    select="getCooperatorsByBacklogId"></collection>
+    </resultMap>
+
+    <select id="getBacklogV2ById" parameterType="Long" resultMap="backlogV2Map">
+        SELECT *
+        FROM mybatis.backlog
+        WHERE id = #{id}
+    </select>
+
+    <select id="getAddressByBacklogId" parameterType="Long" resultType="address">
+        SELECT *
+        FROM mybatis.address
+        WHERE backlogId = #{id}
+    </select>
+
+    <select id="getCooperatorsByBacklogId" parameterType="Long" resultType="cooperator">
+        SELECT *
+        FROM mybatis.cooperator
+        WHERE backlogId = #{id}
+    </select>
+
+    <delete id="deleteBacklogById" parameterType="Long">
+        DELETE FROM mybatis.address
+        WHERE backlogId = #{id};
+        DELETE FROM mybatis.cooperator
+        WHERE backlogId = #{id};
+        DELETE FROM mybatis.backlog
+        WHERE id = #{id};
+    </delete>
+
+    <insert id="insertBacklog" parameterType="backlogV2" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO mybatis.backlog (title, description, path, dueTime, state)
+        VALUES (#{title}, #{description}, #{path}, #{dueTime}, #{state});
+        SELECT @idd := LAST_INSERT_ID();
+        INSERT INTO mybatis.address (street, number, backlogId) VALUES (#{address.street}, #{address.number}, @idd);
+    </insert>
+</mapper>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alpha.TodoMapper">
+    <!--
+    Java类型系统比SQL类型系统要丰富：实体类对象中可能包含值对象：怎么映射结果集？
+    -->
+    <resultMap id="backlogV2Map" type="backlogV2">
+        <result property="address.street" column="street"></result>
+        <result property="address.number" column="number"></result>
+
+        <result property="cooperators[0].name" column="cooperator1_name"></result>
+        <result property="cooperators[0].email" column="cooperator1_email"></result>
+        <result property="cooperators[1].name" column="cooperator2_name"></result>
+        <result property="cooperators[1].email" column="cooperator2_email"></result>
+
+    </resultMap>
+
+    <select id="getBacklogV2ById" parameterType="Long" resultMap="backlogV2Map">
+        SELECT *
+        FROM mybatis.backlogv2
+        WHERE id = #{id}
+    </select>
+
+    <!--
+    用EL访问值对象中的域
+    -->
+    <select id="getBacklogV2ByAddress" parameterType="address" resultMap="backlogV2Map">
+        SELECT *
+        FROM mybatis.backlogv2
+        WHERE street = "${street}" AND number = "${number}"
+    </select>
+
+
+</mapper>
+
